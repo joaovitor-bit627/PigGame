@@ -14,7 +14,9 @@ html {
 body {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
-  height: 100vh;
+  min-height: 100svh;
+  height: auto;
+  padding: 1.2rem;
   color: #333;
   background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
   display: flex;
@@ -25,7 +27,7 @@ body {
 /* LAYOUT */
 main {
   position: relative;
-  width: 100rem;
+  width: min(100rem, 100%);
   height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
@@ -169,3 +171,95 @@ main {
 .hidden {
   display: none;
 }
+@media (max-width: 720px) {
+  body {
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0.8rem;
+  }
+
+  main {
+    width: 100%;
+    max-width: 48rem;
+    min-height: calc(100svh - 1.6rem);
+    height: auto;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .player {
+    padding: 2.4rem 1.8rem;
+  }
+
+  .player:last-child {
+    padding-bottom: 8rem;
+  }
+
+  .name {
+    font-size: 2.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .score {
+    font-size: 5rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .current {
+    width: min(26rem, 90%);
+    padding: 1.4rem;
+  }
+
+  .current-label {
+    font-size: 1.4rem;
+  }
+
+  .current-score {
+    font-size: 2.8rem;
+  }
+
+  .dice {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 7rem;
+    z-index: 3;
+  }
+
+  .btn {
+    position: fixed;
+    top: auto;
+    left: auto;
+    transform: none;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    z-index: 10;
+  }
+
+  .btn::first-letter {
+    font-size: 1.6rem;
+    margin-right: 0.4rem;
+  }
+
+  .btn--new {
+    left: 0.8rem;
+  }
+
+  .btn--roll {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .btn--hold {
+    right: 0.8rem;
+  }
+
+  .btn:active {
+    transform: translateY(2px);
+  }
+
+  .btn--roll:active {
+    transform: translate(-50%, 2px);
+  }
+}
+
+
