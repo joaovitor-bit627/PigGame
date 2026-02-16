@@ -157,6 +157,7 @@ main {
   transform: translateX(-50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  z-index: 4;
 }
 
 .player--winner {
@@ -218,10 +219,15 @@ main {
   }
 
   .dice {
-    top: 50%;
+    top: 28%;
     transform: translate(-50%, -50%);
     height: 7rem;
     z-index: 3;
+    transition: top 0.35s ease;
+  }
+
+  main.main--p1-turn .dice {
+    top: 72%;
   }
 
   .btn {
@@ -241,7 +247,13 @@ main {
   }
 
   .btn--new {
-    left: 0.8rem;
+    right: -2.7rem;
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    transform: rotate(-90deg) translateY(-50%);
+    transform-origin: center;
+    padding: 0.8rem 1.8rem;
   }
 
   .btn--roll {
@@ -253,11 +265,27 @@ main {
     right: 0.8rem;
   }
 
+  main.main--p0-turn .btn--roll,
+  main.main--p0-turn .btn--hold {
+    top: calc(1rem + env(safe-area-inset-top, 0px));
+    bottom: auto;
+  }
+
+  main.main--p1-turn .btn--roll,
+  main.main--p1-turn .btn--hold {
+    top: auto;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  }
+
   .btn:active {
     transform: translateY(2px);
   }
 
   .btn--roll:active {
     transform: translate(-50%, 2px);
+  }
+
+  .btn--new:active {
+    transform: rotate(-90deg) translateY(calc(-50% + 2px));
   }
 }

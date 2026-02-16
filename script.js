@@ -3,6 +3,7 @@
 // Selecting elements
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
+const mainEl = document.querySelector('main');
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
 const current0El = document.getElementById('current--0');
@@ -14,6 +15,11 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
 let scores, currentScore, activePlayer, playing;
+
+const quad = function () {
+  mainEl.classList.toggle('main--p0-turn', activePlayer === 0);
+  mainEl.classList.toggle('main--p1-turn', activePlayer === 1);
+};
 
 // Starting conditions
 const init = function () {
@@ -32,6 +38,7 @@ const init = function () {
   player1El.classList.remove('player--winner');
   player0El.classList.add('player--active');
   player1El.classList.remove('player--active');
+  quad();
 };
 init();
 
@@ -41,6 +48,7 @@ const switchPlayer = function () {
   activePlayer = activePlayer === 0 ? 1 : 0;
   player0El.classList.toggle('player--active');
   player1El.classList.toggle('player--active');
+  quad();
 };
 
 // Rolling dice functionality
