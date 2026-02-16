@@ -192,6 +192,7 @@ main {
     padding: 1.6rem 1.4rem;
     justify-content: flex-start;
     gap: 1.2rem;
+    transform-origin: center;
   }
 
   .player--0 {
@@ -279,6 +280,23 @@ main {
     bottom: auto;
   }
 
+  main.main--p0-turn .player--0 {
+    transform: rotate(180deg);
+  }
+
+  main.main--p1-turn .player--0 {
+    transform: rotate(0deg);
+  }
+
+  main.main--p0-turn .btn--roll,
+  main.main--p0-turn .btn--hold {
+    transform: translateX(calc(-50% - 7.6rem)) rotate(180deg);
+  }
+
+  main.main--p0-turn .btn--hold {
+    transform: translateX(calc(-50% + 7.6rem)) rotate(180deg);
+  }
+
   main.main--p1-turn .btn--roll,
   main.main--p1-turn .btn--hold {
     top: auto;
@@ -295,6 +313,14 @@ main {
 
   .btn--hold:active {
     transform: translate(calc(-50% + 7.6rem), 2px);
+  }
+
+  main.main--p0-turn .btn--roll:active {
+    transform: translate(calc(-50% - 7.6rem), 2px) rotate(180deg);
+  }
+
+  main.main--p0-turn .btn--hold:active {
+    transform: translate(calc(-50% + 7.6rem), 2px) rotate(180deg);
   }
 
   .btn--new:active {
