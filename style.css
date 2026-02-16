@@ -188,46 +188,52 @@ main {
     margin: 0 auto;
   }
   .player {
-    padding: 2.4rem 1.8rem;
+    min-height: 50%;
+    padding: 1.6rem 1.4rem;
+    justify-content: flex-start;
+    gap: 1.2rem;
   }
 
-  .player:last-child {
-    padding-bottom: 8rem;
+  .player--0 {
+    padding-top: 7.2rem;
+    padding-bottom: 5.6rem;
+  }
+
+  .player--1 {
+    padding-top: 7.2rem;
+    padding-bottom: 7.2rem;
   }
 
   .name {
-    font-size: 2.8rem;
-    margin-bottom: 0.6rem;
+    font-size: 2.2rem;
+    margin-bottom: 0;
   }
 
   .score {
-    font-size: 5rem;
-    margin-bottom: 1.6rem;
+    font-size: 4.8rem;
+    margin-bottom: 0;
   }
 
   .current {
-    width: min(26rem, 90%);
-    padding: 1.4rem;
+    width: min(24rem, 86%);
+    padding: 1rem;
   }
 
   .current-label {
-    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
   }
 
   .current-score {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
   }
 
   .dice {
-    top: 28%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    height: 7rem;
-    z-index: 3;
-    transition: top 0.35s ease;
-  }
-
-  main.main--p1-turn .dice {
-    top: 72%;
+    height: 6.2rem;
+    z-index: 6;
+    transition: none;
   }
 
   .btn {
@@ -247,7 +253,7 @@ main {
   }
 
   .btn--new {
-    right: -2.7rem;
+    right: -2.2rem;
     left: auto;
     top: 50%;
     bottom: auto;
@@ -258,11 +264,13 @@ main {
 
   .btn--roll {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 7.6rem));
   }
 
   .btn--hold {
-    right: 0.8rem;
+    left: 50%;
+    right: auto;
+    transform: translateX(calc(-50% + 7.6rem));
   }
 
   main.main--p0-turn .btn--roll,
@@ -282,7 +290,11 @@ main {
   }
 
   .btn--roll:active {
-    transform: translate(-50%, 2px);
+    transform: translate(calc(-50% - 7.6rem), 2px);
+  }
+
+  .btn--hold:active {
+    transform: translate(calc(-50% + 7.6rem), 2px);
   }
 
   .btn--new:active {
